@@ -83,8 +83,8 @@ exports.addProducts = catchAsync(async (req, res, next) => {
     ageOfEquipment: req.body.ageOfEquipment || null,
     area: req.body.area || null,
     soilType: req.body.soilType || null,
-    waterSupply: req.body.waterSupply == "Yes" ? true  : false,
-    electricitySupply: req.body.electricitySupply == "Yes" ? true  : false,
+    waterSupply: req.body.waterSupply == "Yes" ? true  : req.body.waterSupply == "No" ? false : null,
+    electricitySupply: req.body.electricitySupply == "Yes" ? true  : req.body.waterSupply == "No" ? false : null,
     availability: req.body.availability || null,
   };
 
